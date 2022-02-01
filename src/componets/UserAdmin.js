@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CardTable from './CardTable'
 import { Header } from './Header';
 import "./Header.css"
 
 const  UserAdmin = ()=> {
+  useEffect(() => {
+    fetch("http://numbersapi.com/43/trivia")
+    .then(response => response.text)
+    .then(data => console.log(data))
+},[])
 
     return (
-        <div style={{ width: "90%" }} className="d-flex flex-row">
-        <div className="p3 header">
         <Header />
-        </div>
-      </div>
+        
       )
     
 }

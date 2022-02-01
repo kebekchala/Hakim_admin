@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback,useEffect, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';    
 import app from "../firebase";
 import { AuthoContext } from '../Auth';
@@ -8,6 +8,20 @@ import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-sv
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup } from '@themesberg/react-bootstrap';
 
 const Login = ({ history }) => {
+  useEffect(()=>{
+    console.log("render")
+  fetch("http://numbersapi.com/43/trivia")
+  .then(response => 
+    { if(!response){
+      throw new Error("taken");
+    }
+      response.text()})
+  .then(y =>{
+    console.log(y)
+  }).catch(reject => console.log(reject))
+  },[])
+  
+
     const handleLogin = useCallback (
         async event => {
             event.preventDefault();
@@ -17,7 +31,7 @@ const Login = ({ history }) => {
                     .auth()
                     .signInWithEmailAndPassword(email.value, password.value);
 
-                history.pushState("/");
+               // history.pushState("/");
             } catch (error) {
                 console.error(error)
             }

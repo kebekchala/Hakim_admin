@@ -143,13 +143,13 @@ export default function ReportTable (props) {
                         <Modal.Title className="h6">Post </Modal.Title>
                         <Button variant="close" aria-label="Close" onClick={handleClose} />
                         </Modal.Header>
-                        <Modal.Body>{
-                        /*im <img src={postDetail[0].img} 
+                        <Modal.Body>
+                          {/* {
+                          postDetail[0].img &&
+                         postDetail.map((detail)=>{<img src={detail.img} 
                             className='img-thembnail' 
                             alt="...."
-                            style={{maxWidth: '200px'}}/> :<></>
-                            */
-                        }
+                            style={{maxWidth: '200px'}}/>}) } */}
                          <p>{textShow}</p>
                         </Modal.Body>
                         <Modal.Footer>
